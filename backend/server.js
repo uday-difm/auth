@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 const crudRouter = require("./routes/taskCrud.route");
 const port = process.env.PORT || 3000;
-const { db } = require("./db/db");
+const db = require("./db/db");
 
 app.use("/", crudRouter);
 app.use("/auth", authRouter);

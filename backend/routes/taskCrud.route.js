@@ -6,12 +6,14 @@ const {
   editTask,
   deleteTask,
 } = require("../controllers/taskCrud.controller");
-router.get("/", getTasks);
+const verifyUser = require("../middlewares/verifyUser");
 
-router.post("/createTask", createTask);
+router.get("/", verifyUser, getTasks);
 
-router.put("/edit/:id", editTask);
+router.post("/createTask", verifyUser, createTask);
 
-router.delete("/delete/:id", deleteTask);
+router.put("/edit/:id", verifyUser, editTask);
+
+router.delete("/delete/:id", verifyUser, deleteTask);
 
 module.exports = router;

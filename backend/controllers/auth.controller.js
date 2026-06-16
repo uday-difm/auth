@@ -38,6 +38,7 @@ const register = async (req, res) => {
       {
         id: result.insertId,
         email,
+        full_name: name,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" },
@@ -98,6 +99,7 @@ const login = async (req, res) => {
       {
         id: user.id,
         email: user.email,
+        full_name: user.full_name,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" },
